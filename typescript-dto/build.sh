@@ -28,4 +28,4 @@ fi
 
 CHE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args="\${project.version}" --non-recursive exec:exec -f ../pom.xml)
 
-docker build -t eclipse-che-ts-api --build-arg CHE_VERSION="${CHE_VERSION}" --build-arg NPM_AUTH_TOKEN="${NPM_AUTH_TOKEN}" .
+#docker build -t eclipse-che-ts-api --build-arg CHE_VERSION="${CHE_VERSION}" --build-arg NPM_AUTH_TOKEN="${NPM_AUTH_TOKEN}" .
