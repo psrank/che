@@ -92,6 +92,12 @@ public interface ServerConfig {
   String SERVICE_PORT_ATTRIBUTE = "servicePort";
 
   /**
+   * This attributes is marking that server should be exposed on subdomain if we're on single-host.
+   * It has no effect on other server exposure strategies.
+   */
+  String REQUIRE_SUBDOMAIN = "requireSubdomain";
+
+  /**
    * Port used by server.
    *
    * <p>It may contain protocol(tcp or udp) after '/' symbol. If protocol is missing tcp will be
