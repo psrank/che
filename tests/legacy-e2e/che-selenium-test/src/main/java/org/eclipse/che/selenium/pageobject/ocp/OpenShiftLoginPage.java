@@ -184,6 +184,7 @@ public class OpenShiftLoginPage {
         clickOnIdentityProviderLink(IDENTITY_PROVIDER_NAME);
       }
 
+    if (isOpened()) {
       login(openShiftUsername, openShiftPassword);
 
       if (isApproveButtonVisible()) {
