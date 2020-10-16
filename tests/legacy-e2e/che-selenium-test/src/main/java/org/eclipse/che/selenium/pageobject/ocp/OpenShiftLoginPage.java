@@ -197,7 +197,7 @@ public class OpenShiftLoginPage {
         addToExistingAccount();
         cheLoginPage.loginWithPredefinedUsername("admin");
       }
-    // }
+    }
   }
 
   public boolean isOpened() {
