@@ -155,14 +155,11 @@ pipeline {
 
                 stage("Build Che including upstream projects") {
                     when {
-                        expression { return buildChe.toString() == 'true' || params.ghprbCommentBody == null || params.ghprbCommentBody.toString().contains("--rebuild")
+                        expression { return buildChe.toString() == 'true' || (params['ghprbCommentBody'] && params.ghprbCommentBody.toString().contains("--rebuild"))
                         }
                     }
 
                     steps {
-                        echo "buildChe = $params.buildChe"
-                        echo "createTestWorkspace = $params.createTestWorkspace"
-
                         echo "Build branch ${ghprbSourceBranch} of upstream projects"
                         sh """
                             project_list=(
@@ -204,7 +201,7 @@ pipeline {
 
         stage("Build and push che-server image") {
             when {
-                expression { return buildChe.toString() == 'true' || params.ghprbCommentBody == null || params.ghprbCommentBody.toString().contains("--rebuild")
+                expression { return buildChe.toString() == 'true' || (params['ghprbCommentBody'] && params.ghprbCommentBody.toString().contains("--rebuild"))
                 }
             }
 
